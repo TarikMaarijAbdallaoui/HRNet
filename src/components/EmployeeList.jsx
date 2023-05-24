@@ -73,7 +73,7 @@ const rows = [
 ];
 
 
-const Empleados = () => {
+const EmployeeList = () => {
   return (
 
     <Box sx={{ height: 400, width: '100%' }}>
@@ -96,4 +96,4 @@ const Empleados = () => {
   )
 }
 
-export default Empleados
+export default EmployeeList
