@@ -6,10 +6,17 @@ import {
   Button,
 } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { addEmployee } from "../store/employeeSlice";
+import { useDispatch, useSelector  } from "react-redux";
 
 const EmployeeForm = () => {
+  const dispatch = useDispatch()
+  const employees  = useSelector(state => state.employees.list)
+  console.log("Lista de empleados", employees)
   const { control, handleSubmit } = useForm({
     defaultValues: {
+      id:(employees.length + 1) + "",
       firstName: "",
       lastName: "",
       dateOfBirth: "",
@@ -21,11 +28,15 @@ const EmployeeForm = () => {
     },
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data)
+   dispatch(addEmployee(data))
+  };
 
   return (
     <div className="form">
       <h1>HRNET</h1>
+      <Link to={'/employee'}>View Current Employee List</Link>
       <form>
         <Controller
           name="firstName"

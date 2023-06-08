@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<EmployeeForm />} />
-        <Route path="/emplyee" element={<EmployeeList />} />
+        <Route path="/employee" element={<EmployeeList />} />
         <Route path="*" element={<h1>Page not found</h1>} />
       </Routes>
     </BrowserRouter>

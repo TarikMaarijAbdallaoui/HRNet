@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  employees: [],
+  list: [],
 }
 
 export const employeeSlice = createSlice({
@@ -9,14 +9,23 @@ export const employeeSlice = createSlice({
         initialState,
         reducers: {
           addEmployee: (state, action) => {
-            state.employees.push(action.payload)
+            state.list.push(action.payload)
+            localStorage.setItem("employee_list", JSON.stringify(state.list))
           }, 
           deleteEmployee:(state, action) => {
-            state.employees = state.employees.filter( employee => employee.id != action.payload.id
+            state.list = state.list.filter( employee => employee.id != action.payload.id
             )
+            localStorage.setItem("employee_list", JSON.stringify(state.list))
+
+          },
+          loadFromLocalStorage:(state) => {
+            const employee_list = JSON.parse(localStorage.getItem('employee_list')) || null
+            if (employee_list){
+              state.list = employee_list
+            }
           }
         }
 })
-export const { addEmployee, deleteEmployee } = employeeSlice.actions
+export const { addEmployee, deleteEmployee, loadFromLocalStorage } = employeeSlice.actions
 
 export default employeeSlice.reducer

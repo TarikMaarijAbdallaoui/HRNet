@@ -3,6 +3,6 @@ import employeeReducer from './employeeSlice'
 
 export const store = configureStore({
   reducer: {
-        employeeList: employeeReducer
+        employees: employeeReducer
   },
 })
