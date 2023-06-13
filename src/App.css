@@ -1,5 +1,36 @@
+body {
+  background-color: rgb(148, 194, 232);
+}
+h2 {
+  text-align: center;
+}
+.link {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
 .formulario {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.department-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

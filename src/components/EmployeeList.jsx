@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadFromLocalStorage } from '../store/employeeSlice';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 90 },
+  { field: 'id', headerName: 'ID', width: 90, hideable: true },
   {
     field: 'firstName',
     headerName: 'First name',

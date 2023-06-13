@@ -8,125 +8,128 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { addEmployee } from "../store/employeeSlice";
-import { useDispatch, useSelector  } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const EmployeeForm = () => {
-  const dispatch = useDispatch()
-  const employees  = useSelector(state => state.employees.list)
-  console.log("Lista de empleados", employees)
+  const dispatch = useDispatch();
+  const employees = useSelector((state) => state.employees.list);
+  console.log("Lista de empleados", employees);
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      id:(employees.length + 1) + "",
+      id: employees.length + 1 + "",
       firstName: "",
       lastName: "",
       dateOfBirth: "",
       startDate: "",
-      street:"",
-      city:"",
+      street: "",
+      city: "",
       state: "",
       zipCode: "",
     },
   });
 
   const onSubmit = (data) => {
-    console.log(data)
-   dispatch(addEmployee(data))
+    console.log(data);
+    dispatch(addEmployee(data));
   };
 
   return (
     <div className="form">
-      <h1>HRNET</h1>
-      <Link to={'/employee'}>View Current Employee List</Link>
-      <form>
-        <Controller
-          name="firstName"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="First Name"
-              size="small"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          name="lastName"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="Last Name"
-              size="small"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          name="dateOfBirth"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              type="date"
-              size="small"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          name="startDate"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              type="date"
-              size="small"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-
+      <h2>HRNET</h2>
+      <Link className="link" to={"/employee"}>
+        View Current Employee List
+      </Link>
+      <form className="formulario">
+        <div className="form-container">
+          <Controller
+            name="firstName"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label="First Name"
+                size="small"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Controller
+            name="lastName"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label="Last Name"
+                size="small"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Controller
+            name="dateOfBirth"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                type="date"
+                size="small"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Controller
+            name="startDate"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                type="date"
+                size="small"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+        </div>
         <fieldset>
-        <legend>Form</legend>
-        <Controller
-          name="street"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="Street"
-              size="small"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          name="city"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="City"
-              size="small"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-        <Controller
-          name="state"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="State"
-              size="small"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-        
-       {/**  <FormControl style={{ width: "100%" }}>
+          <legend>Form</legend>
+          <Controller
+            name="street"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label="Street"
+                size="small"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Controller
+            name="city"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label="City"
+                size="small"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+          <Controller
+            name="state"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label="State"
+                size="small"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+
+          {/**  <FormControl style={{ width: "100%" }}>
           <Select
             label="State"
             options={[
@@ -140,38 +143,40 @@ const EmployeeForm = () => {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>*/}
-        <Controller
-          name="zipCode"
-          control={control}
-          render={({ field: { onChange, value } }) => (
-            <TextField
-              label="Zip Code"
-              type="number"
-              onChange={onChange}
-              value={value}
-            />
-          )}
-        />
-      </fieldset>
+          <Controller
+            name="zipCode"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label="Zip Code"
+                type="number"
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+        </fieldset>
 
-      <div>
-        <p>Department</p>
-        <FormControl>
-          <Select
-            //value={state}
-            label="State"
-            //onChange={handleChange}
-          >
-            <MenuItem value={"Sales"}>Sales</MenuItem>
-            <MenuItem value={"Marketing"}>Marketing</MenuItem>
-            <MenuItem value={"Engineering"}>Engineering</MenuItem>
-            <MenuItem value={"Engineering"}>Human Resources</MenuItem>
-            <MenuItem value={"Engineering"}>Legal</MenuItem>
-          </Select>
-        </FormControl>
-      </div> 
+        <div className="department-container">
+          <p>Department</p>
+          <FormControl>
+            <Select
+              //value={state}
+              label="State"
+              //onChange={handleChange}
+            >
+              <MenuItem value={"Sales"}>Sales</MenuItem>
+              <MenuItem value={"Marketing"}>Marketing</MenuItem>
+              <MenuItem value={"Engineering"}>Engineering</MenuItem>
+              <MenuItem value={"Engineering"}>Human Resources</MenuItem>
+              <MenuItem value={"Engineering"}>Legal</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
 
-        <Button onClick={handleSubmit(onSubmit)}>Save</Button>
+        <Button color='primary' variant="solid" onClick={handleSubmit(onSubmit)}>
+          Save
+        </Button>
       </form>
     </div>
   );
