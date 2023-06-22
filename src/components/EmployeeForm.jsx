@@ -4,17 +4,19 @@ import {
   Select,
   MenuItem,
   Button,
+  InputLabel,
 } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { addEmployee } from "../store/employeeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { states } from "../data/states";
 
 const EmployeeForm = () => {
   const dispatch = useDispatch();
   const employees = useSelector((state) => state.employees.list);
   console.log("Lista de empleados", employees);
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       id: employees.length + 1 + "",
       firstName: "",
@@ -31,6 +33,7 @@ const EmployeeForm = () => {
   const onSubmit = (data) => {
     console.log(data);
     dispatch(addEmployee(data));
+    reset()
   };
 
   return (
@@ -119,30 +122,17 @@ const EmployeeForm = () => {
           <Controller
             name="state"
             control={control}
-            render={({ field: { onChange, value } }) => (
-              <TextField
-                label="State"
-                size="small"
-                onChange={onChange}
-                value={value}
-              />
+            render={({ field: { onChange, value } }) => (<>
+              <Select
+            label="State"
+            options={states} 
+            onChange={onChange}
+          >
+            {states.map(state => (<MenuItem key={state.abbreviation} value={state.name}>{state.name}</MenuItem>))}
+          </Select></>
             )}
           />
 
-          {/**  <FormControl style={{ width: "100%" }}>
-          <Select
-            label="State"
-            options={[
-              { value: "chocolate", label: "Chocolate" },
-              { value: "strawberry", label: "Strawberry" },
-              { value: "vanilla", label: "Vanilla" }
-            ]} 
-          >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>*/}
           <Controller
             name="zipCode"
             control={control}
