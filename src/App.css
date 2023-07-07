@@ -1,36 +1,118 @@
 body {
-  background-color: rgb(148, 194, 232);
+  background-color: #10317eeb;
 }
+
+input { 
+  color: black;
+}
+
 h2 {
   text-align: center;
 }
+
 .link {
-  text-align: center;
   display: block;
+  text-align: center;
   margin: 0 auto;
 }
+
 .formulario {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
 }
 
-
 .form-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
   padding: 20px;
+  gap: 10px;
+  background-color: white; 
+
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: solid 5px rgba(255, 215, 0.914);
+  border-radius: 10px;
+  
 }
 
-form fieldset {
+form .fieldset {
   display: flex;
   flex-direction: column;
+  background-color: white; 
   gap: 5px;
+  padding: 15px;
+  border: solid 5px rgba(255, 215, 0.914);
+  border-radius: 10px;
 }
 
 .department-container {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  border: solid 5px rgba(255, 215, 0.914);
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.department {
+  margin-top: 30px;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-content {
+  position: relative;
+  padding: 30px 30px;
+  background-color: white;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modal-content div {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  right: -20px;
+  top: -20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  background-color: black;
+}
+
+.title {
+  color: white;
+  font-weight: 800;
+}
+.footer{
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 30px;
+margin-top: 40px;
+  background-color: rgba(255, 215, 0.914);;
+  color: #10317eeb;
+}
+
+header {
+  background-color: rgba(255, 215, 0.914);
+  border-radius: 5px;
+  color: #10317eeb;
+  margin-bottom: 30px;
 }
