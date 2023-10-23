@@ -1,9 +1,10 @@
 import '../App.css'
+import logo from '../assets/logo10.png'
 
 const Header = () => {
   return (
     <header>
-     <h2>HRNET</h2>   
+     <img src={logo} alt='' />   
     </header>
   )
 }

@@ -1,8 +1,13 @@
-body {
-  background-color: #10317eeb;
+* {
+  box-sizing: border-box;
 }
 
-input { 
+body {
+  background: linear-gradient(to left, #666c70, #0d0e0e);
+  margin: 0;
+}
+
+input {
   color: black;
 }
 
@@ -14,6 +19,8 @@ h2 {
   display: block;
   text-align: center;
   margin: 0 auto;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .formulario {
@@ -25,34 +32,45 @@ h2 {
 .form-container {
   display: flex;
   flex-direction: column;
+  background-color: white;
   padding: 20px;
   gap: 10px;
-  background-color: white; 
 
-  margin-top: 30px;
   margin-bottom: 30px;
-  border: solid 5px rgba(255, 215, 0.914);
+  border: solid 5px rgba(9, 115, 168);
   border-radius: 10px;
-  
+}
+
+.form-container input {
+  background-color: white;
+  border-radius: 5px;
 }
 
 form .fieldset {
   display: flex;
   flex-direction: column;
-  background-color: white; 
   gap: 5px;
+  background-color: white;
   padding: 15px;
-  border: solid 5px rgba(255, 215, 0.914);
+  border: solid 5px rgba(9, 115, 168);
   border-radius: 10px;
+}
+
+form .fieldset input {
+  background-color: white;
+  border-radius: 5px;
+}
+
+legend {
+  margin-bottom: 15px;
 }
 
 .department-container {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  border: solid 5px rgba(255, 215, 0.914);
+  border: solid 5px rgba(9, 115, 168);
   border-radius: 10px;
-  margin-top: 30px;
 }
 
 .department {
@@ -60,11 +78,12 @@ form .fieldset {
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  height: 100vh;
   background-color: #000000cc;
   display: flex;
   justify-content: center;
@@ -75,7 +94,7 @@ form .fieldset {
 .modal-content {
   position: relative;
   padding: 30px 30px;
-  background-color: white;
+  background: linear-gradient(to left, #0dc2d6, #086290);
   border-radius: 15px;
   width: 90%;
   max-width: 500px;
@@ -94,25 +113,73 @@ form .fieldset {
   height: 40px;
   color: white;
   background-color: black;
+  cursor: pointer;
 }
 
 .title {
-  color: white;
+  color: #0973a8;
   font-weight: 800;
+  margin-bottom: 5px;
+  font-size: 18px;
 }
-.footer{
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 30px;
-margin-top: 40px;
-  background-color: rgba(255, 215, 0.914);;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin-bottom: -10px;
+  margin-left: -8px;
+  margin-top: 20px;
+  width: 100%;
+  background: linear-gradient(to left, #0dc2d6, #086290);
   color: #10317eeb;
 }
 
 header {
-  background-color: rgba(255, 215, 0.914);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  background: linear-gradient(to left, #21d4e8, #0973a8);
+  color: #292b30eb;
+}
+
+.button {
+  background-color: white;
+  color: #0973a8;
   border-radius: 5px;
-  color: #10317eeb;
-  margin-bottom: 30px;
+  border: 4px solid #0973a8;
+  display: block;
+  max-width: 120px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+header img {
+  height: 150px;
+}
+
+.form-container, .department-container, .fieldset {
+  animation-name: décalage;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+}
+
+@keyframes décalage {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  90% {
+    transform: translateY(-10%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
