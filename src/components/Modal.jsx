@@ -1,23 +1,34 @@
-import React, {useState, useRef} from 'react'
+import React, { useState, useRef } from "react";
 
-const Modal = ({fn, open}) => {
-       
-        const ref = useRef()
+/**
+ * Opens a modal message when an employee is created
+ * @param {object} props 
+ * @returns HTML elements
+ */
+const Modal = ({ fn, open }) => {
+  const ref = useRef();
 
-        const handleClose =(event) => {
-               // if (ref.current && !ref.current.contains(event.target)) {
-                        fn(false)
-                //}
-                
-        }
-  return (<>
-        {open ? (<div className="modal">
-        <div className='modal-content'>
-               <div ref={ref} onClick={handleClose}>X</div>
-                <span>Employee Created!</span>
+  /**
+   * Closes the modal
+   * @param {*} event
+   */
+  const handleClose = (event) => {
+    fn(false);
+  };
+  return (
+    <>
+      {open ? (
+        <div className="modal">
+          <div className="modal-content">
+            <div ref={ref} onClick={handleClose}>
+              X
+            </div>
+            <span>Employee Created!</span>
+          </div>
         </div>
-    </div>): null}</>
-  )
-}
+      ) : null}
+    </>
+  );
+};
 
-export default Modal
+export default Modal;
