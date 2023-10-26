@@ -12,7 +12,7 @@ import { addEmployee } from "../store/employeeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { states } from "../data/states";
 import { useState } from "react";
-import Modal from "./Modal";
+import Modal from "tarik-modal";
 import Footer from "./Footer";
 import Header from "./Header";
 import { DatePicker } from "./DatePicker"
@@ -86,7 +86,7 @@ const EmployeeForm = () => {
 
   return (
     <>
-      <Modal fn={setOpen} open={open} />
+      <Modal fn={setOpen} open={open}>User created successfully!!</Modal>
       <Header />
       <div className="form">
         <Link
